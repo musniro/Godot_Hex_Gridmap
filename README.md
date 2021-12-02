@@ -11,5 +11,7 @@ The script corrects the coordinate system to the following:
   
 ![image](https://user-images.githubusercontent.com/28194128/144512637-b44e9066-e74a-4e50-b9f8-9e8d331fc248.png)
 
-I quickly threw this together from the code I had, tomorrow I will have time to test it further and possibly expand functionality
+For now the HexMap can only correctly support tiles on level 0
+
+I quickly threw this together from the code I had, tomorrow I will have time to test it further and expand functionality (such as retrieving the tiles on mouse click)
   
