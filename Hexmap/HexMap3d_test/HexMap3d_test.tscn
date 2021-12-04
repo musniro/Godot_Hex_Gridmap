@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://HexMap3d_test/HexMap3d.gd" type="Script" id=1]
+[ext_resource path="res://HexMap3d_test/KayKit_Hex_nonrot.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://HexMap3d_test/Camera.gd" type="Script" id=3]
+[ext_resource path="res://HexMap3d_test/UI_hexttileinfo.tscn" type="PackedScene" id=5]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="HexMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 2 )
+use_in_baked_light = true
+cell_size = Vector3( 1, 0.2, 1.732 )
+data = {
+"cells": PoolIntArray( 1, 0, 0, 3, 0, 0, 5, 0, 0, 7, 0, 0, 9, 0, 0, 11, 0, 0, 65533, 0, 0, 65535, 0, 0, 2, 1, 0, 4, 1, 0, 6, 1, 0, 8, 1, 0, 1, 2, 0, 3, 2, 0, 5, 2, 0, 7, 2, 0, 9, 2, 0, 0, 3, 0, 2, 3, 0, 4, 3, 0, 6, 3, 0, 8, 3, 0, 10, 3, 0, 1, 4, 0, 3, 4, 0, 5, 4, 0, 7, 4, 0, 9, 4, 0, 11, 4, 0, 65535, 4, 0, 6, 5, 0, 12, 5, 0, 65534, 5, 0 )
+}
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_clip_": 0
+}
+Camera_np = NodePath("../Camera")
+
+[node name="UI_info" parent="HexMap" instance=ExtResource( 5 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.388336, 0.921518, 0, -0.921518, 0.388336, 3.9266, 8.98214, 6.77037 )
+script = ExtResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.348314, 14.9058, -0.0287457 )
+
+[connection signal="on_hover" from="HexMap" to="HexMap/UI_info" method="_on_HexMap_on_hover"]
+[connection signal="on_left_click" from="HexMap" to="HexMap" method="_on_HexMap_on_left_click"]
