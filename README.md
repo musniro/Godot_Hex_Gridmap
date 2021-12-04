@@ -50,5 +50,5 @@ Now connect the on_hover and on_left_click signals from HexMaps. For now connect
 ### Known limitations
 For now the HexMap can only correctly support tiles on level 0.
 The camera get_mousepos3d returns projection of the mouse position onto a flat plane at height 0. This correlates okay with a tilemap as long as it is also at height 0.
-
+We use a 'hack' in the tilemap size to allow us to place tiles at 'half offsets' (somewhat similar to Godot Tilemaps in 2d). The result of this is that it possibly to start the tiling incorrectly. The simplest way to test this is to run the scene and check if the coordinates make sense. If this is not the case you must move the tiles by one of these half offsets. (This is diffult to describe in words I guess)
   
