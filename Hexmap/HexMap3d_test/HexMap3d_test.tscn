@@ -9,7 +9,7 @@
 
 [node name="Navigation" type="Navigation" parent="."]
 
-[node name="HexMap" type="GridMap" parent="."]
+[node name="HexMap" type="GridMap" parent="Navigation"]
 mesh_library = ExtResource( 2 )
 use_in_baked_light = true
 cell_size = Vector3( 1, 0.2, 1.732 )
@@ -20,16 +20,16 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_clip_": 0
 }
-Camera_np = NodePath("../Camera")
+Camera_np = NodePath("../../Camera")
 
-[node name="UI_info" parent="HexMap" instance=ExtResource( 5 )]
+[node name="UI_info" parent="Navigation/HexMap" instance=ExtResource( 5 )]
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.388336, 0.921518, 0, -0.921518, 0.388336, 3.9266, 8.98214, 6.77037 )
 script = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.348314, 14.9058, -0.0287457 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.348314, 20.513, -0.0287457 )
 
-[connection signal="on_hover" from="HexMap" to="HexMap/UI_info" method="_on_HexMap_on_hover"]
-[connection signal="on_left_click" from="HexMap" to="HexMap" method="_on_HexMap_on_left_click"]
+[connection signal="on_hover" from="Navigation/HexMap" to="Navigation/HexMap/UI_info" method="_on_HexMap_on_hover"]
+[connection signal="on_left_click" from="Navigation/HexMap" to="Navigation/HexMap" method="_on_HexMap_on_left_click"]

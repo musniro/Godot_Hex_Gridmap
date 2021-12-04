@@ -31,10 +31,10 @@ func map_to_world_HEX(mappos: Vector2) -> Vector3:
 	mappos = _uncorrect_mappos(mappos) 
 	return .map_to_world(mappos.x,0,mappos.y)
 
-func has_tile_HEX(mappos):
+func has_tile_HEX(mappos: Vector2):
 	return get_cell_HEX(mappos.x,mappos.y) > -1
 		
-func get_cell_HEX(x,y):
+func get_cell_HEX(x : int, y : int):
 	var mappos := _uncorrect_mappos(Vector2(x,y))
 	return .get_cell_item(mappos.x,0,mappos.y)
 
